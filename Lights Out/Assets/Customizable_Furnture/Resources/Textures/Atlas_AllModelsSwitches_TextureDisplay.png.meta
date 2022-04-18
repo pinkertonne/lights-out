@@ -441,6 +441,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -3361,6 +3362,143 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      FloorLamp_2: 21300072
+      MaterialType_4: 21300182
+      ModType_6: 21300162
+      DoorHandle_9: 21300062
+      DoorHandle_5: 21300056
+      8_LampScreen: 21300086
+      LampTable_4: 21300204
+      WallLamp_1: 21300140
+      SmallTable_3: 21300196
+      WallLamp_14: 21300158
+      FloorLamp_1: 21300070
+      DoorHandle_3: 21300044
+      WallLamp_9: 21300144
+      TableLamp_5: 21300252
+      1_LampScreen: 21300094
+      7_LampScreen: 21300100
+      LampTable_1: 21300176
+      ModType_9: 21300212
+      TableLamp_1: 21300242
+      DoorHandle_0: 21300054
+      WallLamp_12: 21300134
+      FloorLamp_8: 21300068
+      0_LampScreen2: 21300076
+      WallWall_9: 21300020
+      WallLamp_11: 21300168
+      MaterialType_5: 21300184
+      TableLamp_4: 21300254
+      MaterialType_2: 21300116
+      WallWall_6: 21300012
+      DoorHandle_4: 21300058
+      WallWall_10: 21300024
+      2_LampScreen: 21300096
+      TableLamp_3: 21300246
+      ReverseTexture_0: 21300040
+      6_LampScreen1: 21300102
+      FloorLamp_10: 21300082
+      WallWall_14: 21300026
+      FloorLamp_0: 21300064
+      FloorLamp_6: 21300092
+      12_LampScreen: 21300120
+      WallWall_8: 21300016
+      SmallTable_0: 21300190
+      SmallTable_6: 21300200
+      ModType_1: 21300148
+      WallLamp_2: 21300152
+      SimpleRoofLamp_1: 21300228
+      FloorLamp_3: 21300074
+      DoorHandle_10: 21300050
+      LampTable_2: 21300178
+      SmallTable_5: 21300202
+      WallLamp_10: 21300156
+      TableLamp_11: 21300262
+      MaterialType_1: 21300114
+      4_LampScreen2: 21300088
+      SimpleRoofLamp_2: 21300230
+      ModType_4: 21300138
+      SmallTable_8: 21300126
+      ModType_2: 21300160
+      FloorTile_0: 21300272
+      WallWall_1: 21300002
+      TableLamp_15: 21300264
+      SimpleRoofLamp_6: 21300234
+      MaterialType_7: 21300188
+      LampTable_5: 21300206
+      WallLamp_6: 21300154
+      MaterialType_6: 21300186
+      WallWall_2: 21300004
+      ModType_8: 21300210
+      LampTable_8: 21300208
+      TableLamp_10: 21300260
+      TableLamp_13: 21300268
+      SimpleRoofLamp_4: 21300226
+      TableLamp_7: 21300248
+      WallWall_7: 21300014
+      SmallTable_2: 21300194
+      TableLamp_2: 21300244
+      9_LampScreen: 21300106
+      WallWall_0: 21300000
+      WallWall_13: 21300022
+      WallLamp_4: 21300130
+      DoorHandle_1: 21300052
+      FloorTile_2: 21300276
+      10_LampScreen2: 21300108
+      TableLamp_0: 21300240
+      SmallTable_4: 21300238
+      SmallTable_7: 21300198
+      WallLamp_0: 21300128
+      FloorLamp_9: 21300080
+      3_LampScreen: 21300098
+      TurnLight_1: 21300034
+      SimpleRoofLamp_0: 21300224
+      TableLamp_9: 21300258
+      DoorHandle_8: 21300060
+      ModType_7: 21300172
+      ModType_0: 21300136
+      WallWall_5: 21300010
+      FloorLamp_5: 21300078
+      LampTable_6: 21300216
+      SimpleRoofLamp_3: 21300236
+      WallWall_3: 21300006
+      ModType_3: 21300170
+      FloorLamp_11: 21300084
+      11_LampScreen: 21300110
+      LampTable_7: 21300220
+      LampTable_0: 21300174
+      TableLamp_14: 21300266
+      DoorHandle_2: 21300046
+      BulbColor_1: 21300030
+      ModType_5: 21300150
+      FloorLamp_7: 21300090
+      WallWall_12: 21300018
+      TurnLight_0: 21300036
+      WallLamp_13: 21300146
+      DoorHandle_7: 21300042
+      WallLamp_7: 21300166
+      ReverseTexture_1: 21300038
+      13_LampScreen: 21300122
+      14_LampScreen1: 21300124
+      SimpleRoofLamp_5: 21300232
+      WallWall_11: 21300028
+      BulbColor_0: 21300032
+      MaterialType_0: 21300112
+      TableLamp_6: 21300250
+      MaterialType_3: 21300118
+      WallLamp_8: 21300132
+      WallLamp_5: 21300142
+      SmallTable_1: 21300192
+      WallWall_4: 21300008
+      FloorLamp_4: 21300066
+      TableLamp_12: 21300270
+      5_LampScreen1: 21300104
+      FloorTile_1: 21300274
+      DoorHandle_6: 21300048
+      LampTable_3: 21300180
+      WallLamp_3: 21300164
+      TableLamp_8: 21300256
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

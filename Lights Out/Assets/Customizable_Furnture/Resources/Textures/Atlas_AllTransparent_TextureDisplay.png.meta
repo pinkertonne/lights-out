@@ -54,6 +54,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -328,6 +329,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Glass_3: 21300014
+      Blinds_1: 21300006
+      Glass_1: 21300010
+      Blinds_2: 21300002
+      Blinds_3: 21300008
+      Glass_0: 21300004
+      Glass_2: 21300012
+      Glass_4: 21300016
+      Blinds_0: 21300000
+      Glass_5: 21300018
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

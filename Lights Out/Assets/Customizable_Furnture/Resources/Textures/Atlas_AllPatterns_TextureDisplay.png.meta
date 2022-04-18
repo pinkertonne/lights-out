@@ -144,6 +144,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1048,6 +1049,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Curtain_6: 21300010
+      Wall_14: 21300044
+      Wall_9: 21300034
+      Floor_4: 21300056
+      Floor_8: 21300058
+      Wall_3: 21300022
+      Wall_5: 21300026
+      Wall_2: 21300020
+      Wall_7: 21300030
+      Floor_2: 21300052
+      Floor_7: 21300070
+      Floor_6: 21300068
+      Curtain_5: 21300006
+      Curtain_0: 21300000
+      Floor_15: 21300078
+      Wall_1: 21300018
+      Wall_0: 21300016
+      Wall_11: 21300038
+      Floor_14: 21300074
+      Floor_9: 21300064
+      Curtain_4: 21300002
+      Curtain_7: 21300014
+      Wall_10: 21300036
+      Wall_15: 21300046
+      Floor_3: 21300054
+      Wall_4: 21300024
+      Floor_11: 21300076
+      Wall_12: 21300040
+      Wall_13: 21300042
+      Curtain_3: 21300012
+      Wall_8: 21300032
+      Floor_0: 21300048
+      Floor_10: 21300072
+      Floor_1: 21300050
+      Floor_5: 21300062
+      Curtain_1: 21300004
+      Wall_6: 21300028
+      Curtain_2: 21300008
+      Floor_12: 21300060
+      Floor_13: 21300066
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

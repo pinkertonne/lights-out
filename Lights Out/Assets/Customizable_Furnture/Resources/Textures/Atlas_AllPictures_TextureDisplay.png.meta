@@ -192,6 +192,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1432,6 +1433,63 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Long_1: 21300036
+      Long_4: 21300024
+      Quad_11: 21300068
+      Tall_3: 21300014
+      Quad_9: 21300032
+      Tall_8: 21300080
+      Long_9: 21300040
+      Tall_4: 21300060
+      Long_10: 21300054
+      Tall_14: 21300092
+      Quad_3: 21300006
+      Game_0: 21300096
+      Quad_7: 21300058
+      Game_1: 21300098
+      Game_3: 21300102
+      Long_14: 21300056
+      Tall_5: 21300062
+      Long_5: 21300038
+      Tall_10: 21300084
+      Tall_12: 21300088
+      Quad_4: 21300016
+      Long_13: 21300042
+      Quad_15: 21300070
+      Long_8: 21300026
+      Tall_1: 21300010
+      Game_6: 21300106
+      Long_12: 21300028
+      Long_0: 21300022
+      Game_7: 21300104
+      Quad_1: 21300002
+      Tall_11: 21300086
+      Quad_2: 21300004
+      Tall_2: 21300012
+      Long_15: 21300078
+      Quad_5: 21300030
+      Long_7: 21300074
+      Quad_0: 21300000
+      Long_11: 21300076
+      Quad_12: 21300020
+      Long_2: 21300050
+      Tall_7: 21300066
+      Tall_6: 21300064
+      Tall_13: 21300090
+      Long_6: 21300052
+      Quad_10: 21300046
+      Quad_6: 21300044
+      Game_5: 21300108
+      Long_3: 21300072
+      Quad_13: 21300034
+      Game_2: 21300100
+      Tall_0: 21300008
+      Tall_15: 21300094
+      Quad_8: 21300018
+      Tall_9: 21300082
+      Quad_14: 21300048
+      Game_4: 21300110
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

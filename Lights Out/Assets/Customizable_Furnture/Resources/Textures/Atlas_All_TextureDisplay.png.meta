@@ -258,6 +258,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1960,6 +1961,85 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Metal_7: 21300154
+      Marble_1: 21300026
+      Granite_0: 21300100
+      LampScreen_3: 21300138
+      Wood_2: 21300012
+      LED_1: 21300050
+      LampScreen_7: 21300146
+      Plastic_1: 21300078
+      Quarry_0: 21300106
+      Cloth_2: 21300036
+      Metal_4: 21300148
+      Metal_5: 21300150
+      LED_6: 21300060
+      Cloth_0: 21300032
+      Cloth_3: 21300038
+      Cloth_4: 21300040
+      Cloth_7: 21300046
+      Granite_3: 21300118
+      Plastic_3: 21300082
+      Quarry_1: 21300108
+      LampScreen_6: 21300144
+      Plastic_5: 21300120
+      Rug_0: 21300000
+      Leather_0: 21300064
+      Leather_3: 21300070
+      LampScreen_0: 21300132
+      Metal_0: 21300072
+      Granite_1: 21300098
+      Plastic_14: 21300094
+      LampScreen_1: 21300134
+      Cloth_6: 21300044
+      LED_4: 21300056
+      Plastic_13: 21300128
+      LampScreen_2: 21300136
+      Quarry_2: 21300110
+      Leather_2: 21300068
+      Plastic_4: 21300084
+      Plastic_15: 21300130
+      Wood_1: 21300010
+      LED_7: 21300062
+      LampScreen_4: 21300140
+      Wood_3: 21300014
+      Marble_0: 21300024
+      Plastic_2: 21300080
+      Plastic_9: 21300124
+      Rug_3: 21300006
+      Wood_6: 21300020
+      LED_2: 21300052
+      Wood_4: 21300016
+      Cloth_1: 21300034
+      LED_3: 21300054
+      Plastic_6: 21300086
+      Plastic_10: 21300090
+      Metal_2: 21300102
+      Rug_1: 21300002
+      LED_5: 21300058
+      Metal_1: 21300074
+      Plastic_12: 21300092
+      Quarry_4: 21300114
+      Wood_5: 21300018
+      Plastic_11: 21300126
+      Rug_2: 21300004
+      Quarry_5: 21300116
+      Metal_6: 21300152
+      Marble_3: 21300030
+      Marble_2: 21300028
+      LED_0: 21300048
+      Wood_0: 21300008
+      Granite_2: 21300096
+      Wood_7: 21300022
+      Cloth_5: 21300042
+      LampScreen_5: 21300142
+      Plastic_8: 21300088
+      Leather_1: 21300066
+      Metal_3: 21300104
+      Quarry_3: 21300112
+      Plastic_0: 21300076
+      Plastic_7: 21300122
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
