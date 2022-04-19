@@ -2831,7 +2831,8 @@ Transform:
   m_LocalPosition: {x: 0.001, y: 0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2074752241}
   m_Father: {fileID: 343310360}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2898,7 +2899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f197372109f934459294c167aab824c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 50
   playerBody: {fileID: 343310360}
 --- !u!1 &343310356
 GameObject:
@@ -2913,6 +2913,7 @@ GameObject:
   - component: {fileID: 343310358}
   - component: {fileID: 343310357}
   - component: {fileID: 343310361}
+  - component: {fileID: 343310362}
   m_Layer: 0
   m_Name: Player Controller
   m_TagString: Untagged
@@ -2997,7 +2998,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 339691074}
-  - {fileID: 2074752241}
   m_Father: {fileID: 1849280319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3019,6 +3019,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &343310362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343310356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c22cc1523ea4e459988b9f15859e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!28 &346742634
 Texture2D:
   m_ObjectHideFlags: 0
@@ -18515,14 +18527,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074752240}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.17, y: 0.458, z: 0.684}
-  m_LocalScale: {x: 0.26704, y: 0.42878065, z: 0.14176594}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.16899987, y: -0.45199996, z: 1.053}
+  m_LocalScale: {x: 0.26704016, y: 0.42878065, z: 0.14176586}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1021544878}
-  m_Father: {fileID: 343310360}
-  m_RootOrder: 1
+  m_Father: {fileID: 339691074}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!136 &2074752242
 CapsuleCollider:

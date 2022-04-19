@@ -5,13 +5,12 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     private float mouseSensitivity = 50f;
-    private Transform playerBody;
+    public Transform playerBody;
     private float xRotation = 0; 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        playerBody = GetComponent<Transform>();
     }
 
     // Update is called once per frame
