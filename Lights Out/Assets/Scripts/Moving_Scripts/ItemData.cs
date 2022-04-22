@@ -5,10 +5,10 @@ using UnityEngine;
 public class ItemData : MonoBehaviour
 {
    // A list of the items in the player's inventory
-   public list<Item> batteryItems = new List<Item>;
-   public list<Item> candleItems = new List<Item>;
-   public list<Item> toolItems = new List<Item>;
-   public list<Item> loreItems = new List<Item>;
+  // public list<Item> batteryItems = new List<Item>;
+  // public list<Item> candleItems = new List<Item>;
+  // public list<Item> toolItems = new List<Item>;
+  // public list<Item> loreItems = new List<Item>;
 
 
    void buildDatabase()
