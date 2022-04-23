@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class LightState : MonoBehaviour
 { 
-   private Light light; 
+   private Light m_Light; 
 
    void Start()
    {
-       light = GetComponent<Light>();
+        m_Light = GetComponent<Light>();
    }
 
    void Update()
    {
        if (Input.GetMouseButtonUp(1))
        {
-           light.enabled = !light.enabled;
+           m_Light.enabled = !m_Light.enabled;
        }
    }
 }
