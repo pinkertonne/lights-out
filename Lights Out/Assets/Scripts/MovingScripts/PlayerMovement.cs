@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         // checks if the player is grounded 
-        if (controller.isGrounded == false)
+        if (!controller.isGrounded)
         {
             move += Physics.gravity; // applies gravity
         }
