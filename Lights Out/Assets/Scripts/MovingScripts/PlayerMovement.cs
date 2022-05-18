@@ -21,8 +21,15 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-       Vector3 move = transform.right * x + transform.forward * z;
-       controller.Move(move * playerSpeed * Time.deltaTime);  
+    
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        // checks if the player is grounded 
+        if (controller.isGrounded == false) 
+        {
+            move += Physics.gravity; // applies gravity
+        }
+        controller.Move(move * playerSpeed * Time.deltaTime);  
 
     }
 }
