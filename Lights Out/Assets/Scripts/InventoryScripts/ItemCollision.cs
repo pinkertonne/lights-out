@@ -23,7 +23,7 @@ public class ItemCollision : MonoBehaviour
     // Called after each frame 
     private void Update()
     {
-        if (pickable && Input.GetKeyDown(KeyCode.F)) // checks to see if player 
+        if (pickable && Input.GetMouseButtonUp(0)) // checks to see if player 
         {//tries to pickup the object
             Debug.Log("Hereeeee"); // here for debugging 
             pickItem(item);

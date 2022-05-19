@@ -4,35 +4,72 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    // List of objects in the players inventory 
-    public List<Item> playerInventory = new List<Item>();
+    // public vars 
+    public Stack<Item> batteryStack = new Stack<Item>();
+    public Stack<Item> matchStack = new Stack<Item>();
     public ItemData gameItems; 
+    public int batteryCount = 0;
+    public int matchCount = 0;
+
+    // Runs for every frame 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ShowInventory();
+        }
+    }
 
     // Adds an Item to the players inventory
     public void AddItem(int id)
     {
         Item itemAdded = gameItems.GetItem(id);
-        playerInventory.Add(itemAdded);
-        Debug.Log("Added Item " + id + ".\n"); // Here for testing
-    }
+        //Debug.Log("Added Item " + id + ".\n"); // Here for testing
 
-    // Checks to see if an item is in the Player's Inventory
-    public bool InInventory(int id)
-    {
-        return playerInventory.Exists(item => item.itemId == id);
+        if (id >= 0 && id < 20)
+        {
+            batteryStack.Push(itemAdded);
+            batteryCount += 1; 
+        }
+        else 
+        {
+            matchStack.Push(itemAdded);
+            matchCount += 1; 
+        }
+        ShowInventory();
     }
 
     // Deletes an item from the Player's Inventory
     public void RemoveItem(int id)
     {
-        if (InInventory(id))
+        if ((id >= 0 && id < 20) && batteryStack.Count > 0)
         {
-            playerInventory.Remove(gameItems.GetItem(id));
-            Debug.Log("Item " + id + " removed.\n");
+            batteryStack.Pop();
         }
-        else 
+        else if (matchStack.Count > 0)
         {
-            Debug.Log("Item " + id + " was not in the player's inventory.\n");
+            matchStack.Pop();
         }
+        ShowInventory();
+    }
+
+    // Displays the current inventory of the Player 
+    public void ShowInventory()
+    {
+        batteryCount = 0;
+        matchCount = 0; 
+
+        foreach (Item i in batteryStack)
+        {
+            batteryCount += 1;
+        }
+
+        foreach (Item i in matchStack)
+        {
+            matchCount += 1; 
+        }
+
+        Debug.Log("Battery Count:  " + batteryCount);
+        Debug.Log("Matchbox Count: " + matchCount);
     }
 }

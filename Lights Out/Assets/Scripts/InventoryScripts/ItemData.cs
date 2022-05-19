@@ -23,7 +23,9 @@ public class ItemData : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             playerItems.Add(new Item(i, "battery"){});
-        }    
+        } 
+        playerItems.Add(new Item(20, "matchbox"){});
+        playerItems.Add(new Item(10, "candle"){});   
     }
 
     // Gets the item based on its ID
