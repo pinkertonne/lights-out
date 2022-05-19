@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Item class for our inventory management 
-public class Item
+public class Item : MonoBehaviour
 {
     public int itemId; // Item id
     public float itemStatus; // Item status

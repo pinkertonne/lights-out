@@ -8,13 +8,6 @@ public class PlayerInventory : MonoBehaviour
     public List<Item> playerInventory = new List<Item>();
     public ItemData gameItems; 
 
-    // Start method that calls when the script first runs
-    private void Start()
-    {
-        AddItem(0);
-        RemoveItem(0);
-    }
-
     // Adds an Item to the players inventory
     public void AddItem(int id)
     {
