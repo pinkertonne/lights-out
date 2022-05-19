@@ -37,6 +37,7 @@ public class CandleState : MonoBehaviour
             else if (playerInventoryRef.matchCount == 0 && inRange)
             {
                 Debug.Log("There are no Matches in your inventory"); // for testing
+            }
         }
     }
 
