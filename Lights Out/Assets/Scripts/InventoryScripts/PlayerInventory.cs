@@ -1,22 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
     // public vars 
+    public TextMeshProUGUI batteryText;
+    public TextMeshProUGUI matchText;  
     public Stack<Item> batteryStack = new Stack<Item>();
     public Stack<Item> matchStack = new Stack<Item>();
     public ItemData gameItems; 
-    public int batteryCount = 0;
-    public int matchCount = 0;
+    public static int batteryCount = 0;
+    public static int matchCount = 0;
 
+    // Runs at the beginning of the scene 
+    private void awake()
+    {
+        batteryText.enabled = false;
+        matchText.enabled = false; 
+
+    }
     // Runs for every frame 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKey(KeyCode.R))
         {
             ShowInventory();
+        }
+        else 
+        {
+            batteryText.enabled = false;
+            matchText.enabled = false;  
         }
     }
 
@@ -45,31 +60,50 @@ public class PlayerInventory : MonoBehaviour
         if ((id >= 0 && id < 20) && batteryStack.Count > 0)
         {
             batteryStack.Pop();
+            batteryCount -= 1; 
         }
         else if (matchStack.Count > 0)
         {
             matchStack.Pop();
+            matchCount -= 1; 
         }
         ShowInventory();
+    }
+
+    public void PopBatteryStack()
+    {
+        if (batteryStack.Count > 0)
+        {
+            batteryStack.Pop();
+            batteryCount -= 1;
+        }
+        else
+        {
+            Debug.Log("There are no batteries in your inventory");
+        }
+    }
+
+    public void PopMatchStack()
+    {
+        if (matchStack.Count > 0)
+        {
+            matchStack.Pop();
+            matchCount -= 1;
+        }
+        else 
+        {
+            Debug.Log("There are no Matches in your inventory");
+        }
+        
     }
 
     // Displays the current inventory of the Player 
     public void ShowInventory()
     {
-        batteryCount = 0;
-        matchCount = 0; 
+        batteryText.SetText("Batteries: " + batteryCount);
+        batteryText.enabled = true; 
 
-        foreach (Item i in batteryStack)
-        {
-            batteryCount += 1;
-        }
-
-        foreach (Item i in matchStack)
-        {
-            matchCount += 1; 
-        }
-
-        Debug.Log("Battery Count:  " + batteryCount);
-        Debug.Log("Matchbox Count: " + matchCount);
+        matchText.SetText("Matches: " + matchCount);
+        matchText.enabled = true; 
     }
 }

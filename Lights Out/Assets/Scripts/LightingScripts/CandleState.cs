@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public class CandleState : MonoBehaviour
 {
     // private var 
     private bool inRange;
+    private static System.Timers.Timer aTimer;
 
     // public vars 
     public bool isLit;
     public bool canLight; 
-    public float litTime;
+    public static float litTime;
     public LayerMask mask; 
     public Light m_candle;
     public PlayerInventory playerInventoryRef; 
@@ -28,24 +30,31 @@ public class CandleState : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        int temp = PlayerInventory.matchCount;
         if (Input.GetMouseButtonUp(0))
         {
             if (canLight)
             {
-                LightCandle(m_candle, litTime, isLit);
+                playerInventoryRef.PopMatchStack();
+                LightCandle(ref m_candle, litTime, isLit);
             }
-            else if (playerInventoryRef.matchCount == 0 && inRange)
+            else if (temp == 0 && inRange)
             {
                 Debug.Log("There are no Matches in your inventory"); // for testing
             }
+        }
+        else if (litTime <= 0.0f)
+        {
+            m_candle.enabled = false; 
         }
     }
 
     // Called when the player enters the trigger zone
     private void OnTriggerEnter(Collider other)
     {
-        inRange = true; 
-        if (other.CompareTag("Player") && inSight() && playerInventoryRef.matchCount > 0)
+        inRange = true;
+        int i = PlayerInventory.matchCount; 
+        if (other.CompareTag("Player") && inSight() && i > 0)
         {
             canLight = true; 
         }
@@ -75,11 +84,26 @@ public class CandleState : MonoBehaviour
     }
 
     // lights the candle 
-    public void LightCandle(Light light, float timeRemaining, bool litState)
+    public void LightCandle(ref Light candle, float timeRemaining, bool litState)
     {
         if (!litState)
         {
-            light.enabled = true; 
+            candle.enabled = true;
+            canLight = false;  
         }
+        aTimer = new System.Timers.Timer();
+        aTimer.Elapsed += CandleTimer;
+        aTimer.Interval = 1000;
+        aTimer.Enabled = true; 
+    }
+
+    public static void CandleTimer(object source, ElapsedEventArgs e)
+    {
+        litTime -= 0.5f;
+        Debug.Log("The new littime is: " + litTime);
+         if (litTime <= 0.0f)
+        {
+            aTimer.Stop();
+        } 
     }
 }

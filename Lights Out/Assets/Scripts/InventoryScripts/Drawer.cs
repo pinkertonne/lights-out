@@ -30,7 +30,8 @@ public class Drawer : MonoBehaviour
             {
                 CloseText.gameObject.SetActive(false);
                 OpenText.gameObject.SetActive(true);
-            } else
+            } 
+            else
             {
                 CloseText.gameObject.SetActive(true);
                 OpenText.gameObject.SetActive(false);
@@ -54,7 +55,8 @@ public class Drawer : MonoBehaviour
             CloseText.gameObject.SetActive(true);
             OpenText.gameObject.SetActive(false);
             closed = !closed;
-        } else
+        } 
+        else
         {
             CloseText.gameObject.SetActive(false);
             OpenText.gameObject.SetActive(true);
