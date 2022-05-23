@@ -13,10 +13,12 @@ public class Drawer : MonoBehaviour
     private Text OpenText;
     [SerializeField]
     private Text CloseText;
+    [SerializeField]
+    private bool close = false;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && close)
         {
             ToggleDrawer();
         }
@@ -24,6 +26,7 @@ public class Drawer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        close = true;
         if (other.CompareTag("Player"))
         {
             if (closed)
@@ -41,6 +44,7 @@ public class Drawer : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        close = false;
         if (other.CompareTag("Player"))
         {
             OpenText.gameObject.SetActive(false);
