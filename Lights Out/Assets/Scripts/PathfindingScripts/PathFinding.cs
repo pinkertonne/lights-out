@@ -15,18 +15,124 @@ public class PathFinding : MonoBehaviour
     public Transform StartPosition;
     public Transform TargetPosition;
 
+    // movement vars 
+    float speed = 2.0f; 
+    int xMoveFrom;
+    int yMoveFrom;
+    int xMoveTo;
+    int yMoveTo;
+    bool flag = true;
+    List<int> finalPathIndex = new List<int>();
+
+  
     // Called at the beginning of the scene
     private void Awake()
     {
         grid = GetComponent<Grid>(); // gets grid component
+        finalPathIndex.Add(0); // adds zero for x index 
+        finalPathIndex.Add(0); // adds zero for  y index 
+    }
+
+    // Runs before the first frame 
+    private void Start()
+    {
+        UpdatePath(StartPosition.position, TargetPosition.position); // creates the opitmized path
     }
 
     // Runs for every frame
     private void Update()
     {
-        UpdatePath(StartPosition.position, TargetPosition.position);
+        if (flag) // runs the first iteration of set movement 
+        {
+            finalPathIndex = SetMovement(grid.FinalPath, finalPathIndex[0], finalPathIndex[1]);
+        }
+       MoveObject(); // moves the player object 
+       flag = false; 
     }
 
+    // sets the x and y movement vars 
+    List<int> SetMovement(List<Node> arg_FinalPath, int xIndex, int yIndex)
+    {
+        // Assign start node 
+        Node StartNode = arg_FinalPath[xIndex];
+
+        // find x and y starting coordinates
+        xMoveFrom = StartNode.gridX;
+        yMoveFrom = StartNode.gridY;
+
+        // find x and y coordinates to move to
+        xMoveTo = xMoveFrom;
+        yMoveTo = yMoveFrom;
+
+        // calculate x move to 
+        for (int i = xIndex; i < arg_FinalPath.Count; i++)
+        {
+            if (yMoveTo != arg_FinalPath[i].gridY && i > 0)
+            {
+                xMoveTo = arg_FinalPath[i - 1].gridX;
+                xIndex = i;
+                break;
+            }     
+        }
+        if (xIndex < yIndex) // if all the x coordinates are taken care of 
+        {
+            // calcuates y move to 
+            for (int i = yIndex; i < arg_FinalPath.Count; i++)
+            {
+                if (xMoveTo != arg_FinalPath[i].gridX && i > 0)
+                {
+                    yMoveTo = arg_FinalPath[i - 1].gridX;
+                    yIndex = i;
+                    break;
+                }
+            }
+        }
+        else 
+        {
+            yIndex = xIndex + 1; // sets y to the next index 
+        }
+            
+        // returns a list of the x and y indexes
+        List<int> intList = new List<int>();
+        intList.Add(xIndex);
+        intList.Add(yIndex);
+        return intList; 
+    }
+
+    // moves the object every time 
+    void MoveObject()
+    {
+        // Moves the object along the x axis 
+        if (xMoveFrom < xMoveTo)
+        {
+            StartPosition.Translate(Vector3.right * speed * Time.deltaTime);
+        }
+        else if (xMoveFrom > xMoveTo)
+        {
+            StartPosition.Translate(-Vector3.right * speed * Time.deltaTime);
+        }
+
+        // moves the object along the y axis 
+        if (yMoveFrom < yMoveTo)
+        {
+            StartPosition.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+        else if (yMoveFrom > yMoveTo)
+        {
+            StartPosition.Translate(Vector3.back * speed * Time.deltaTime);
+        }
+        
+        // recalulates the move to variables if a x or y movement is completed 
+        if ((yMoveFrom == yMoveTo && xMoveFrom == xMoveTo) && StartPosition.position != TargetPosition.position)
+        {
+            finalPathIndex = SetMovement(grid.FinalPath, finalPathIndex[0], finalPathIndex[1]);
+        }
+
+        // get new move from positions while the object is moving
+        xMoveFrom = grid.GetNodeFromWorldPosition(StartPosition.position).gridX;
+        yMoveFrom = grid.GetNodeFromWorldPosition(StartPosition.position).gridY;        
+    }
+    
     // Determines if the minimized path should be updated 
     void UpdatePath(Vector3 arg_StartPosition, Vector3 arg_TargetPosition)
     {
@@ -118,6 +224,7 @@ public class PathFinding : MonoBehaviour
         FinalPath.Reverse();
 
         grid.FinalPath = FinalPath;
+        Debug.Log("Final Path Count" + grid.FinalPath.Count);
     }
 
     // Calcuates the h cost by using the manahtten distance of 2 nodes 
@@ -127,5 +234,4 @@ public class PathFinding : MonoBehaviour
         int y = Mathf.Abs(arg_NodeA.gridY - arg_NodeB.gridY);
         return x + y;
     }
-
 }
