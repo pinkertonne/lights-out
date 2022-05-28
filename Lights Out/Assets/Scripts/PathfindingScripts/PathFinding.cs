@@ -1,6 +1,8 @@
 // Special thanks to "Daniel" youtube channel for his A* tutorial
 // https://www.youtube.com/watch?v=AKKpPmxx07w
 
+// Currently this code works fine but still needs full data encapsulation
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,10 +20,13 @@ public class PathFinding : MonoBehaviour
     // movement vars 
     float speed = 2.0f; 
     int xMoveFrom;
+    int xMoveToTemp;
     int yMoveFrom;
+    int yMoveToTemp;
     int xMoveTo;
     int yMoveTo;
-    bool flag = true;
+    bool xFlag = false; 
+    bool yFlag = false; 
     List<int> finalPathIndex = new List<int>();
 
   
@@ -37,17 +42,13 @@ public class PathFinding : MonoBehaviour
     private void Start()
     {
         UpdatePath(StartPosition.position, TargetPosition.position); // creates the opitmized path
+        finalPathIndex = SetMovement(grid.FinalPath, finalPathIndex[0], finalPathIndex[1]);
     }
 
     // Runs for every frame
     private void Update()
     {
-        if (flag) // runs the first iteration of set movement 
-        {
-            finalPathIndex = SetMovement(grid.FinalPath, finalPathIndex[0], finalPathIndex[1]);
-        }
-       MoveObject(); // moves the player object 
-       flag = false; 
+        MoveObject(); // moves the player object 
     }
 
     // sets the x and y movement vars 
@@ -64,34 +65,106 @@ public class PathFinding : MonoBehaviour
         xMoveTo = xMoveFrom;
         yMoveTo = yMoveFrom;
 
-        // calculate x move to 
-        for (int i = xIndex; i < arg_FinalPath.Count; i++)
+        // temp values used for logic comparison
+        xMoveToTemp = xMoveTo;
+        yMoveToTemp = yMoveTo;
+
+    
+
+        // x moves if y is not moving 
+        if (!yFlag)
         {
-            if (yMoveTo != arg_FinalPath[i].gridY && i > 0)
+            // loop through the final path index 
+            for (int i = xIndex; i < arg_FinalPath.Count; i++)
             {
-                xMoveTo = arg_FinalPath[i - 1].gridX;
-                xIndex = i;
-                break;
-            }     
-        }
-        if (xIndex < yIndex) // if all the x coordinates are taken care of 
-        {
-            // calcuates y move to 
-            for (int i = yIndex; i < arg_FinalPath.Count; i++)
-            {
-                if (xMoveTo != arg_FinalPath[i].gridX && i > 0)
+                // index 0 edge case 
+                if (yMoveTo != arg_FinalPath[i].gridY && xMoveToTemp == arg_FinalPath[i].gridX && i < 1)
                 {
-                    yMoveTo = arg_FinalPath[i - 1].gridX;
-                    yIndex = i;
+                    xFlag = true;
+                    yFlag = false; 
+                    xMoveTo = arg_FinalPath[i + 1].gridX;
+                    xIndex = i + 1; 
+                    break; 
+                } 
+                // move in the x direction until there is a change in direction 
+                else if (yMoveTo != arg_FinalPath[i].gridY && xMoveToTemp == arg_FinalPath[i - 1].gridX && i < arg_FinalPath.Count)
+                {
+                    xFlag = true;
+                    yFlag = false; 
+                    xMoveTo = arg_FinalPath[i - 1].gridX;
+                    xIndex = i; 
                     break;
+                }
+                // if there is a change in direction and both directions change 
+                else if (yMoveTo != arg_FinalPath[i].gridY)
+                {
+                    xIndex = i;
+                    xFlag = false; 
+                    break;
+                }
+                else // move temp
+                {
+                    xMoveToTemp = arg_FinalPath[i].gridX;
                 }
             }
         }
         else 
         {
-            yIndex = xIndex + 1; // sets y to the next index 
+            xIndex = yIndex; // if y is moving move x up to y
         }
-            
+        
+        // if x is not moving 
+        if (!xFlag)
+        {
+            // loop through the final path index 
+            for (int i = yIndex; i < arg_FinalPath.Count; i++)
+            {
+                // first index edge case 
+                if (xMoveTo != arg_FinalPath[i].gridX && yMoveToTemp == arg_FinalPath[i].gridY && i < 1)
+                {
+                    yFlag = true;
+                    xFlag = false; 
+                    yMoveTo = arg_FinalPath[i + 1].gridY;
+                    yIndex = i + 1; 
+                    break; 
+                } 
+                // moves y until there is a change of direction 
+                else if (xMoveTo != arg_FinalPath[i].gridX && yMoveToTemp == arg_FinalPath[i - 1].gridY && i < arg_FinalPath.Count)
+                {
+                    yFlag = true;
+                    xFlag = false; 
+                    yMoveTo = arg_FinalPath[i - 1].gridY;
+                    yIndex = i; 
+                    break;
+                }
+                // if both directions change at once 
+                else if (xMoveTo != arg_FinalPath[i].gridX)
+                {
+                        yIndex = i;
+                        yFlag = false; 
+                        break;
+                }
+                // move temp 
+                else 
+                {
+                    yMoveToTemp = arg_FinalPath[i].gridY;
+                }
+            }
+        }
+        else 
+        {
+            yIndex = xIndex; // move the y index to x index 
+        }
+
+        // handles the diagonal edge case 
+        if (!xFlag && !yFlag)
+        {
+            xMoveTo = arg_FinalPath[xIndex].gridX;
+            yMoveTo = arg_FinalPath[xIndex].gridY;
+            xFlag = false; 
+            yFlag = false; 
+        }
+ 
         // returns a list of the x and y indexes
         List<int> intList = new List<int>();
         intList.Add(xIndex);
@@ -99,7 +172,7 @@ public class PathFinding : MonoBehaviour
         return intList; 
     }
 
-    // moves the object every time 
+    // moves the object every frame 
     void MoveObject()
     {
         // Moves the object along the x axis 
@@ -122,8 +195,8 @@ public class PathFinding : MonoBehaviour
             StartPosition.Translate(Vector3.back * speed * Time.deltaTime);
         }
         
-        // recalulates the move to variables if a x or y movement is completed 
-        if ((yMoveFrom == yMoveTo && xMoveFrom == xMoveTo) && StartPosition.position != TargetPosition.position)
+        // recalulates the move to variables if the current x and y movements are completed 
+        if ( xMoveFrom == xMoveTo && yMoveFrom == yMoveTo && (StartPosition.position != TargetPosition.position))
         {
             finalPathIndex = SetMovement(grid.FinalPath, finalPathIndex[0], finalPathIndex[1]);
         }

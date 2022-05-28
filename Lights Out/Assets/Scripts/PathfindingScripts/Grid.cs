@@ -93,10 +93,28 @@ public class Grid : MonoBehaviour
             NeighborNodeList.Add(NodeArray[xCheck, yCheck]);
         }
 
+        // check diagonal top right side 
+        xCheck = arg_Node.gridX + 1;
+        yCheck = arg_Node.gridY + 1; 
+
+        if (xCheck >= 0 &&  xCheck < gridSizeX && yCheck >= 0 && yCheck < gridSizeY)
+        {
+            NeighborNodeList.Add(NodeArray[xCheck, yCheck]);
+        }
+        
         // check left side 
         xCheck = arg_Node.gridX - 1;
         yCheck = arg_Node.gridY;
         
+        if (xCheck >= 0 &&  xCheck < gridSizeX && yCheck >= 0 && yCheck < gridSizeY)
+        {
+            NeighborNodeList.Add(NodeArray[xCheck, yCheck]);
+        }
+
+        // check diagonal top left side 
+        xCheck = arg_Node.gridX - 1;
+        yCheck = arg_Node.gridY - 1; 
+
         if (xCheck >= 0 &&  xCheck < gridSizeX && yCheck >= 0 && yCheck < gridSizeY)
         {
             NeighborNodeList.Add(NodeArray[xCheck, yCheck]);
@@ -115,6 +133,24 @@ public class Grid : MonoBehaviour
         xCheck = arg_Node.gridX;
         yCheck = arg_Node.gridY - 1;
         
+        if (xCheck >= 0 &&  xCheck < gridSizeX && yCheck >= 0 && yCheck < gridSizeY)
+        {
+            NeighborNodeList.Add(NodeArray[xCheck, yCheck]);
+        }
+
+        // check diagonal bottom left side
+        xCheck = arg_Node.gridX - 1;
+        yCheck = arg_Node.gridY - 1; 
+
+        if (xCheck >= 0 &&  xCheck < gridSizeX && yCheck >= 0 && yCheck < gridSizeY)
+        {
+            NeighborNodeList.Add(NodeArray[xCheck, yCheck]);
+        }
+
+        // check diagonal bottom right side
+        xCheck = arg_Node.gridX + 1;
+        yCheck = arg_Node.gridY - 1; 
+
         if (xCheck >= 0 &&  xCheck < gridSizeX && yCheck >= 0 && yCheck < gridSizeY)
         {
             NeighborNodeList.Add(NodeArray[xCheck, yCheck]);
