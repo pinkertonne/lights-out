@@ -8,6 +8,11 @@ public class ItemData : MonoBehaviour
     //A list of the different items 
     public List<Item> playerItems;
 
+    // The different items 
+    public Item item1;
+    public Item item2;
+    public Item item3;
+
     // runs when the game begins
     // initializes the items in the map
     private void Awake()
@@ -20,12 +25,11 @@ public class ItemData : MonoBehaviour
     {
         playerItems = new List<Item>(){};
         // Adds a new battery to the database
-        for (int i = 0; i < 5; i++)
-        {
-            playerItems.Add(new Item(i, "battery"){});
-        } 
-        playerItems.Add(new Item(20, "matchbox"){});
-        playerItems.Add(new Item(10, "candle"){});   
+        playerItems.Add(item1);
+        playerItems.Add(item2);
+        playerItems.Add(item3);
+
+        
     }
 
     // Gets the item based on its ID

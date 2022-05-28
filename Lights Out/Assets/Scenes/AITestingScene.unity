@@ -158,7 +158,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   gridWorldSize: {x: 30, y: 30}
-  nodeRadius: 0.5
+  nodeRadius: 0.1
   distance: 0
 --- !u!4 &132567617
 Transform:
@@ -398,7 +398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324699334}
   m_LocalRotation: {x: -0, y: -0.48890027, z: -0, w: 0.8723398}
-  m_LocalPosition: {x: -306.19873, y: 645.86, z: -56.90064}
+  m_LocalPosition: {x: -306.92, y: 645.66, z: -58.08}
   m_LocalScale: {x: 1.1177487, y: 1.9602364, z: 4.620783}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -720,7 +720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069123395}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -300.79874, y: 644.63727, z: -55.07064}
+  m_LocalPosition: {x: -293.54, y: 644.63727, z: -49.8}
   m_LocalScale: {x: 1.1177486, y: 1.9602364, z: 4.620783}
   m_ConstrainProportionsScale: 0
   m_Children: []
