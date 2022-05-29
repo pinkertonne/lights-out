@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/*
+    This is a class for the inventory of the player 
+*/
 public class PlayerInventory : MonoBehaviour
 {
     // public vars 
@@ -70,6 +73,7 @@ public class PlayerInventory : MonoBehaviour
         ShowInventory();
     }
 
+    // pops a battery from the battery stack
     public void PopBatteryStack()
     {
         if (batteryStack.Count > 0)
@@ -83,6 +87,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    // pops a match from the match stack 
     public void PopMatchStack()
     {
         if (matchStack.Count > 0)

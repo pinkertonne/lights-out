@@ -2,11 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    This class handles the movement of the 
+    player's vision in response to mouse movement 
+*/
 public class MouseLook : MonoBehaviour
 {
+
+    // mouse vars 
     private float mouseSensitivity = 250f;
-    public Transform playerBody;
     private float xRotation = 0; 
+
+    // var for camera rotaton 
+    public Transform playerBody;
+
+
     // Start is called before the first frame update
     void Start()
     {

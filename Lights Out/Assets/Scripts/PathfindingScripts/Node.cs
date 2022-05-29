@@ -5,8 +5,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Node class that contains all the properties 
-// of a node used in the A* pathfinding tutorial 
+/*
+    Node class that contains all the properties 
+    of a node used in the A* pathfinding tutorial 
+*/
 public class Node
 {
 

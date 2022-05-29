@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 
+/*
+    This class maintains the state of a candle 
+*/
 public class CandleState : MonoBehaviour
 {
-    // private var 
+    // private vars 
     private bool inRange;
     private static System.Timers.Timer aTimer;
 

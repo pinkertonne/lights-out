@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Item class for our inventory management 
+
+/*
+    This class contains the data needed for an item object 
+*/
 public class Item : MonoBehaviour
 {
     public int itemId; // Item id

@@ -7,27 +7,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// This class implements the A* pathfinding algorithm 
+/*
+    This class implements the A* pathfinding algorithm
+*/ 
 public class PathFinding : MonoBehaviour
 {
     // grid class reference 
-    Grid grid;
+    private Grid grid;
 
     // the start and end positions in Unity
     public Transform StartPosition;
     public Transform TargetPosition;
 
     // movement vars 
-    float speed = 2.0f; 
-    int xMoveFrom;
-    int xMoveToTemp;
-    int yMoveFrom;
-    int yMoveToTemp;
-    int xMoveTo;
-    int yMoveTo;
-    bool xFlag = false; 
-    bool yFlag = false; 
-    List<int> finalPathIndex = new List<int>();
+    private float speed = 2.0f; 
+    private int xMoveFrom;
+    private int xMoveToTemp;
+    private int yMoveFrom;
+    private int yMoveToTemp;
+    private int xMoveTo;
+    private int yMoveTo;
+    private bool xFlag = false; 
+    private bool yFlag = false; 
+    private List<int> finalPathIndex = new List<int>();
 
   
     // Called at the beginning of the scene
@@ -68,8 +70,6 @@ public class PathFinding : MonoBehaviour
         // temp values used for logic comparison
         xMoveToTemp = xMoveTo;
         yMoveToTemp = yMoveTo;
-
-    
 
         // x moves if y is not moving 
         if (!yFlag)
@@ -173,7 +173,7 @@ public class PathFinding : MonoBehaviour
     }
 
     // moves the object every frame 
-    void MoveObject()
+    private void MoveObject()
     {
         // Moves the object along the x axis 
         if (xMoveFrom < xMoveTo)
@@ -207,7 +207,7 @@ public class PathFinding : MonoBehaviour
     }
     
     // Determines if the minimized path should be updated 
-    void UpdatePath(Vector3 arg_StartPosition, Vector3 arg_TargetPosition)
+    private void UpdatePath(Vector3 arg_StartPosition, Vector3 arg_TargetPosition)
     {
         // The closest nodes at the start and end position
         Node StartNode = grid.GetNodeFromWorldPosition(arg_StartPosition);
@@ -281,7 +281,7 @@ public class PathFinding : MonoBehaviour
     }
 
     // gets the final path for the pathfinding algorithm 
-    void GetFinalPath(Node arg_StartPosition, Node arg_EndPosition)
+    private void GetFinalPath(Node arg_StartPosition, Node arg_EndPosition)
     {
         List<Node> FinalPath = new List<Node>();
         Node CurrentNode = arg_EndPosition;
@@ -301,7 +301,7 @@ public class PathFinding : MonoBehaviour
     }
 
     // Calcuates the h cost by using the manahtten distance of 2 nodes 
-    int GetManhattenDistance(Node arg_NodeA, Node arg_NodeB)
+    private int GetManhattenDistance(Node arg_NodeA, Node arg_NodeB)
     {
         int x = Mathf.Abs(arg_NodeA.gridX - arg_NodeB.gridX);
         int y = Mathf.Abs(arg_NodeA.gridY - arg_NodeB.gridY);

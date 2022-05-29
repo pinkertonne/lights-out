@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 
-// This is a class that controls the state
-// of the flashlight and its behaviour
+
+/*
+    This is a class that controls the state
+    of the flashlight and its behaviour
+*/ 
 public class LightState : MonoBehaviour
 { 
     // private vars 
@@ -75,6 +78,7 @@ public class LightState : MonoBehaviour
         
     }
 
+    // updates the battery life of the flashlight 
     public static void BatteryLife(object source, ElapsedEventArgs e)
     {
         flashlightTime -= 0.5f;

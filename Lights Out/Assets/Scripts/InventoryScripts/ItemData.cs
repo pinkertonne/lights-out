@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// A public class for managing the state of objects in the game
+/*
+    A public class for managing the state of objects in the game
+*/
 public class ItemData : MonoBehaviour
 {
     //A list of the different items 

@@ -5,9 +5,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// This class contains data for the 2d grid
-// plane that the A* pathfinding algorithm will
-// ultilize 
+
+/*
+    This class contains data for the 2d grid
+    plane that the A* pathfinding algorithm will
+    ultilize 
+*/
 public class Grid : MonoBehaviour
 {
     // collision and position vars
@@ -35,7 +38,7 @@ public class Grid : MonoBehaviour
     }
 
     // Greates the grid
-    void CreateGrid()
+    private void CreateGrid()
     {
         NodeArray = new Node[gridSizeX, gridSizeY];
         // calculates the bottom left position of the grid 

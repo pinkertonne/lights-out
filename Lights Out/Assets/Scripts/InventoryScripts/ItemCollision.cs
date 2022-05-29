@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Class that handles player and Item interaction
+/*
+  this is a class that handles player and Item interaction
+*/
 public class ItemCollision : MonoBehaviour
 {
     // True if the player can pick up the Item
@@ -25,7 +27,6 @@ public class ItemCollision : MonoBehaviour
     {
         if (pickable && Input.GetMouseButtonUp(0)) // checks to see if player 
         {//tries to pickup the object
-            Debug.Log("Hereeeee"); // here for debugging 
             pickItem(item);
         }
     }
@@ -66,7 +67,6 @@ public class ItemCollision : MonoBehaviour
     {
         inventory.AddItem(item.itemId);
         parentObject.SetActive(false);
-        Debug.Log("The item was picked up!!!!!");
     }
 }
 
