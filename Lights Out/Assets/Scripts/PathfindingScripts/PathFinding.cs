@@ -78,7 +78,7 @@ public class PathFinding : MonoBehaviour
             for (int i = xIndex; i < arg_FinalPath.Count; i++)
             {
                 // index 0 edge case 
-                if (yMoveTo != arg_FinalPath[i].gridY && xMoveToTemp == arg_FinalPath[i].gridX && i < 1)
+                if (yMoveTo != arg_FinalPath[i].gridY && yMoveToTemp == arg_FinalPath[i].gridY && i < 1)
                 {
                     xFlag = true;
                     yFlag = false; 
@@ -87,7 +87,7 @@ public class PathFinding : MonoBehaviour
                     break; 
                 } 
                 // move in the x direction until there is a change in direction 
-                else if (yMoveTo != arg_FinalPath[i].gridY && xMoveToTemp == arg_FinalPath[i - 1].gridX && i < arg_FinalPath.Count)
+                else if (yMoveTo != arg_FinalPath[i].gridY && yMoveToTemp == arg_FinalPath[i].gridY && i < arg_FinalPath.Count)
                 {
                     xFlag = true;
                     yFlag = false; 
@@ -104,7 +104,7 @@ public class PathFinding : MonoBehaviour
                 }
                 else // move temp
                 {
-                    xMoveToTemp = arg_FinalPath[i].gridX;
+                    yMoveToTemp = arg_FinalPath[i].gridX;
                 }
             }
         }
@@ -120,7 +120,7 @@ public class PathFinding : MonoBehaviour
             for (int i = yIndex; i < arg_FinalPath.Count; i++)
             {
                 // first index edge case 
-                if (xMoveTo != arg_FinalPath[i].gridX && yMoveToTemp == arg_FinalPath[i].gridY && i < 1)
+                if (xMoveTo != arg_FinalPath[i].gridX && xMoveToTemp == arg_FinalPath[i].gridX && i < 1)
                 {
                     yFlag = true;
                     xFlag = false; 
@@ -129,7 +129,7 @@ public class PathFinding : MonoBehaviour
                     break; 
                 } 
                 // moves y until there is a change of direction 
-                else if (xMoveTo != arg_FinalPath[i].gridX && yMoveToTemp == arg_FinalPath[i - 1].gridY && i < arg_FinalPath.Count)
+                else if (xMoveTo != arg_FinalPath[i].gridX && xMoveToTemp == arg_FinalPath[i].gridX && i < arg_FinalPath.Count)
                 {
                     yFlag = true;
                     xFlag = false; 
@@ -147,7 +147,7 @@ public class PathFinding : MonoBehaviour
                 // move temp 
                 else 
                 {
-                    yMoveToTemp = arg_FinalPath[i].gridY;
+                    xMoveToTemp = arg_FinalPath[i].gridY;
                 }
             }
         }
@@ -297,7 +297,6 @@ public class PathFinding : MonoBehaviour
         FinalPath.Reverse();
 
         grid.FinalPath = FinalPath;
-        Debug.Log("Final Path Count" + grid.FinalPath.Count);
     }
 
     // Calcuates the h cost by using the manahtten distance of 2 nodes 
