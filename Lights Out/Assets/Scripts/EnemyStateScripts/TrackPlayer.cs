@@ -10,7 +10,7 @@ using UnityEngine;
 public class TrackPlayer : MonoBehaviour
 {
 
-    enum State // Different states the enemy object can be in
+    private enum State // Different states the enemy object can be in
     {
         Attack, // approach and attack the player 
         Patrol, // guard a certain area
@@ -21,7 +21,7 @@ public class TrackPlayer : MonoBehaviour
     public GameObject Player; // player
     public GameObject Enemy; // enemy
 
-    State EnemyState; // enemy state
+    private State EnemyState; // enemy state
     private float enemySpeed; // enemy speed  
 
     // Start is called before the first frame update
