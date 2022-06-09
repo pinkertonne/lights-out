@@ -13,7 +13,7 @@ public class TrackPlayer : MonoBehaviour
     private enum State // Different states the enemy object can be in
     {
         Attack, // approach and attack the player 
-        Patrol, // guard a certain area
+        Move, // Move to the nearest midpoint
         Stop // stop moving 
         // respawn - will be done later  
     }
@@ -67,6 +67,20 @@ public class TrackPlayer : MonoBehaviour
         else 
         {
             EnemyState = State.Stop;
+        }
+    }
+
+    // Lets the game know if the A* should pause and
+    // let the enemy pursue the player
+    public bool CanAttack()
+    {
+        if (EnemyState == State.Attack)
+        {
+            return true;
+        }
+        else 
+        {
+            return false; 
         }
     }
 }

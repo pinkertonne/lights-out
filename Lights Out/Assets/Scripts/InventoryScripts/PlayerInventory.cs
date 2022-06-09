@@ -9,8 +9,8 @@ using TMPro;
 public class PlayerInventory : MonoBehaviour
 {
     // public vars 
-    public TextMeshProUGUI batteryText;
-    public TextMeshProUGUI matchText;  
+    //public TextMeshProUGUI batteryText;
+    //public TextMeshProUGUI matchText;  
     public Stack<Item> batteryStack = new Stack<Item>();
     public Stack<Item> matchStack = new Stack<Item>();
     public ItemData gameItems; 
@@ -20,8 +20,8 @@ public class PlayerInventory : MonoBehaviour
     // Runs at the beginning of the scene 
     private void awake()
     {
-        batteryText.enabled = false;
-        matchText.enabled = false; 
+        //batteryText.enabled = false;
+        //matchText.enabled = false; 
 
     }
     // Runs for every frame 
@@ -33,8 +33,8 @@ public class PlayerInventory : MonoBehaviour
         }
         else 
         {
-            batteryText.enabled = false;
-            matchText.enabled = false;  
+            //batteryText.enabled = false;
+            //matchText.enabled = false;  
         }
     }
 
@@ -105,10 +105,10 @@ public class PlayerInventory : MonoBehaviour
     // Displays the current inventory of the Player 
     public void ShowInventory()
     {
-        batteryText.SetText("Batteries: " + batteryCount);
-        batteryText.enabled = true; 
+       // batteryText.SetText("Batteries: " + batteryCount);
+       // batteryText.enabled = true; 
 
-        matchText.SetText("Matches: " + matchCount);
-        matchText.enabled = true; 
+        //matchText.SetText("Matches: " + matchCount);
+        //matchText.enabled = true; 
     }
 }

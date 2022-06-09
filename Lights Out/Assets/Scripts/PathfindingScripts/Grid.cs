@@ -26,6 +26,7 @@ public class Grid : MonoBehaviour
     float nodeDiameter; 
     int gridSizeX;
     int gridSizeY;
+    
 
     // Start method at the beginning of the program
     // calculates the dimensions of the grid 
@@ -40,6 +41,7 @@ public class Grid : MonoBehaviour
     // Greates the grid
     private void CreateGrid()
     {
+        int num = 0;
         NodeArray = new Node[gridSizeX, gridSizeY];
         // calculates the bottom left position of the grid 
         Vector3 bottomLeft = transform.position - 
@@ -62,8 +64,10 @@ public class Grid : MonoBehaviour
                 }
                 // create a new node in the grid array 
                 NodeArray[x, y] = new Node(wall, worldPoint, x, y);   
+                num++;
             }
         }
+        Debug.Log("the number of nodes is   " + num);
     }
 
     // gets the closest node to a vector3's world position

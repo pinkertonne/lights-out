@@ -13,7 +13,7 @@ using UnityEngine;
 public class PathFinding : MonoBehaviour
 {
     // grid class reference 
-    private Grid grid;
+    public  Grid grid;
 
     // the start and end positions in Unity
     public Transform StartPosition;
@@ -31,11 +31,14 @@ public class PathFinding : MonoBehaviour
     private bool yFlag = false; 
     private List<int> finalPathIndex = new List<int>();
 
-  
+    // test var
+    private bool finalExists = false; 
+    Vector3 targetTemp;
+
     // Called at the beginning of the scene
     private void Awake()
     {
-        grid = GetComponent<Grid>(); // gets grid component
+        //grid = GetComponent<Grid>(); // gets grid component
         finalPathIndex.Add(0); // adds zero for x index 
         finalPathIndex.Add(0); // adds zero for  y index 
     }
@@ -43,19 +46,36 @@ public class PathFinding : MonoBehaviour
     // Runs before the first frame 
     private void Start()
     {
+        targetTemp = TargetPosition.position;
+
         UpdatePath(StartPosition.position, TargetPosition.position); // creates the opitmized path
+
+        Debug.Log(grid.FinalPath.Count);
         finalPathIndex = SetMovement(grid.FinalPath, finalPathIndex[0], finalPathIndex[1]);
     }
 
     // Runs for every frame
     private void Update()
     {
-        MoveObject(); // moves the player object 
+        if (targetTemp != TargetPosition.position && (finalPathIndex[0] != null && finalPathIndex[1] != null))
+        {
+            
+            UpdatePath(StartPosition.position, TargetPosition.position);
+            finalPathIndex[0] = 0;
+            finalPathIndex[1] = 0;
+            
+        }
+
+       
+           // MoveObject(); // moves the player object 
+        
+        Debug.Log(grid.FinalPath.Count);
     }
 
     // sets the x and y movement vars 
     List<int> SetMovement(List<Node> arg_FinalPath, int xIndex, int yIndex)
     {
+        Debug.Log(xIndex);
         // Assign start node 
         Node StartNode = arg_FinalPath[xIndex];
 
@@ -196,7 +216,7 @@ public class PathFinding : MonoBehaviour
         }
         
         // recalulates the move to variables if the current x and y movements are completed 
-        if ( xMoveFrom == xMoveTo && yMoveFrom == yMoveTo && (StartPosition.position != TargetPosition.position))
+        if ( xMoveFrom == xMoveTo && yMoveFrom == yMoveTo && (StartPosition.position != TargetPosition.position) && grid.FinalPath.Count > finalPathIndex[0])
         {
             finalPathIndex = SetMovement(grid.FinalPath, finalPathIndex[0], finalPathIndex[1]);
         }
@@ -297,6 +317,11 @@ public class PathFinding : MonoBehaviour
         FinalPath.Reverse();
 
         grid.FinalPath = FinalPath;
+
+        if (grid.FinalPath.Count > 0)
+        {
+            finalExists = true;
+        }
     }
 
     // Calcuates the h cost by using the manahtten distance of 2 nodes 
