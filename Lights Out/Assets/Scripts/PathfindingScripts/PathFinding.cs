@@ -59,16 +59,12 @@ public class PathFinding : MonoBehaviour
     {
         if (targetTemp != TargetPosition.position && (finalPathIndex[0] != null && finalPathIndex[1] != null))
         {
-            
+           
             UpdatePath(StartPosition.position, TargetPosition.position);
             finalPathIndex[0] = 0;
             finalPathIndex[1] = 0;
-            
         }
-
-       
-           // MoveObject(); // moves the player object 
-        
+        MoveObject(); // moves the player object 
         Debug.Log(grid.FinalPath.Count);
     }
 

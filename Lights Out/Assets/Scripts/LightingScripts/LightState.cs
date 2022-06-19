@@ -81,7 +81,7 @@ public class LightState : MonoBehaviour
     // updates the battery life of the flashlight 
     public static void BatteryLife(object source, ElapsedEventArgs e)
     {
-        flashlightTime -= 0.5f;
+        flashlightTime -= 0.0f; // changed for editing purposes
         if (flashlightTime <= 0.0f)
         {
             batteryTimer.Stop();
