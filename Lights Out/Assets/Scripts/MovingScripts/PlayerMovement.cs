@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool groundedPlayer;
 
     // the player movement speed 
-    private float playerSpeed = 3.25f;
+    private float playerSpeed = 15f;
 
     private void Start()
     {
