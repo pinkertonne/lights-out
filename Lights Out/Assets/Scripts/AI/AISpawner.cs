@@ -14,6 +14,9 @@ public class AISpawner : MonoBehaviour
     private float targetTime;
     public float thisTime = 100f;
 
+    public static int maxEnemies = 100;
+    public static int currentEnemies = 0;
+
     public GameObject enemy;
     public GameObject player;
 
@@ -28,7 +31,11 @@ public class AISpawner : MonoBehaviour
         targetTime -= Time.deltaTime;
         if (targetTime <= 0.0f)
         {
-            SpawnAI();
+            if (currentEnemies < maxEnemies)
+            {
+                SpawnAI();
+                currentEnemies++;
+            }
             targetTime = thisTime * frequency;
         }
     }
